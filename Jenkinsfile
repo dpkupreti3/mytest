@@ -3,8 +3,8 @@ pipeline{
 	stages {
 		stage('Compile stg'){
 			steps{
-				withMaven(maven : 'maven-3_6_3'){
-				sh 'mvn clean compile'
+				withMaven(maven : 'maven_3_6_3'){
+				bat 'mvn clean compile'
 				}
 			}
 		}
@@ -12,15 +12,15 @@ pipeline{
 		stage('Testing stg'){
             steps{
                 withMaven(maven : 'maven-3_6_3'){
-                sh 'mvn test'
+                bat 'mvn test'
                 }
             }
         }
         
         stage('Deploy stg'){
             steps{
-                withMaven(maven : 'maven-3_6_3'){
-                sh 'mvn deploy'
+                withMaven(maven : 'maven_3_6_3'){
+                bat 'mvn deploy'
                 }
             }
         }
